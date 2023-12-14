@@ -21,7 +21,7 @@ const props = defineProps<{
   stroke: rgb(var(--dark));
   fill: none;
   outline: none;
-  border: 2px solid rgba(var(--dark), 0.8);
+  border: var(--border);
   border-radius: var(--radius-sm);
 }
 .button:hover {
@@ -32,7 +32,8 @@ const props = defineProps<{
 .button:active {
   border-color: rgb(var(--accent));
   stroke: rgb(var(--accent));
-  color: rgb(var(--accent));
+  color: rgb(var(--light));
+  background: rgba(var(--primary), 0.6);
 }
 .button.active {
   border-color: transparent;

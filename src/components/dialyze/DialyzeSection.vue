@@ -1,18 +1,18 @@
 <template>
     <VSection title="Назначения сеанса гемодиализа">
-        <VGroup title="Назначения сеанса гемодиализа">
+        <VGroup>
             <VButton :class="{'active': program === 'HD'}" @click="program='HD'">HD</VButton>
             <VButton :class="{'active': program === 'HDF'}" @click="program='HDF'">HDF</VButton>
             <VButton :class="{'active': program === 'UF'}" @click="program='UF'">UF</VButton>
         </VGroup>
         <VGroup>
-            <TextInput placeholder="Спр. Диализаторы" readonly>Диализатор</TextInput>
-            <VButton @click="setupModal('Диализаторы')"><IconMenu/></VButton>
+            <TextInput :placeholder="dialazer" readonly>Диализатор</TextInput>
+            <VButton @click="setupModal('dialyzers')"><IconMenu/></VButton>
         </VGroup>
         <VGroup>
             <TextInput placeholder="Спр. Концентраторы" readonly>Концентратор</TextInput>
             <VButton @click="setupModal('Концентратор')"><IconMenu/></VButton>
-            <TextInput class="fit-content" placeholder="10 л" readonly>Объем л.</TextInput>
+            <TextInput input-class="fit-content" placeholder="10 л" readonly>Объем л.</TextInput>
         </VGroup>
         <VGroup title="Тип инъекции">
             <VButton :class="{'active': injectType === 'Игла'}" @click="injectType='Игла'">Игла</VButton>
@@ -33,10 +33,10 @@
         <VGroup>
             <TextInput placeholder="ХХХ гр / л">Бикарбонат</TextInput>
             <VButton @click="setupModal('Бикарбонат')"><IconMenu/></VButton>
-            <TextInput placeholder="ХХХ кг">Сухой вес пациента</TextInput>
+            <TextInput input-class="fit-content" placeholder="ХХХ кг">Сухой вес пациента</TextInput>
             <TextInput placeholder="Наименование">Антикоагуляция</TextInput>
             <VButton @click="setupModal('Антикоагуляция')"><IconMenu/></VButton>
-            <TextInput placeholder="ХХХ ед">Объем</TextInput>
+            <TextInput input-class="fit-content" placeholder="ХХХ ед">Объем</TextInput>
         </VGroup>
         <VGroup>
             <VButton>Сформировать сеанс</VButton>
@@ -52,7 +52,13 @@
                 weight=""
             />
         </VGroup>
-        <Modal v-if="modal.isVisible" :title="modal.title" @close="modal.isVisible=false"/>
+        <Modal
+            v-if="modal.isVisible"
+            :title="modal.title"
+            @close="modal.isVisible=false"
+            @change="(model, value) => console.log(model, value)"
+            :model="modal.model"
+        />
     </VSection>
 </template>
 
@@ -66,14 +72,16 @@ import DialyzeBoard from './DialyzeBoard.vue'
 
 const program = ref<string>('')
 const injectType = ref<string>('')
+
+
+const dialazer = ref<string>('Диализатор 1')
+
 const modal = ref({
+    title: 'Диализаторы',
     isVisible: false,
-    title: 'Диализаторы'
 })
-function setupModal(category: string) {
+function setupModal(model: string) {
     modal.value.isVisible = true
-    modal.value.title = category
-    console.log(category)
 }
 </script>
 

@@ -16,11 +16,15 @@ const props = defineProps<{
 </script>
 
 <style scoped>
+.section {
+    padding: var(--padding);
+}
 .container {
     width: min(1440px, calc(100vw - 50px));
     margin: 0 auto;
 }
 .section__title {
     font-size: var(--font-md);
+    margin-bottom: var(--padding);
 }
 </style>

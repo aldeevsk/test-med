@@ -35,7 +35,7 @@ const emit = defineEmits<{
     align-items: center;
     height: 30px;
     padding: 0 2rem;
-    border: 2px solid rgba(var(--dark), 0.8);
+    border: var(--border);
     border-radius: var(--radius-sm);
 }
 [type='radio']:checked + label {

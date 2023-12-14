@@ -13,10 +13,11 @@
 
 <style scoped>
 .header {
-    min-height: 6rem;
+    height: 6rem;
     padding: var(--gap), 0;
 }
 .header .container {
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

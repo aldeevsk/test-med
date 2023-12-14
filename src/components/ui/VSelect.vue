@@ -34,13 +34,13 @@ const emit = defineEmits<{
     height: 30px;
     display: flex;
     align-items: center;
-    border: 2px solid rgba(var(--dark), 0.6);
+    border: var(--border);
     padding: 0 20px;
 }
 .select__button {
     background: transparent;
     width: 30px;
     height: 30px;
-    border: 2px solid rgba(var(--dark), 0.6);
+    border: var(--border);
 }
 </style>

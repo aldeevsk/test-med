@@ -1,7 +1,7 @@
 <template>
     <div class="modal__item">
         <div class="modal__item-name">
-            <span>Венозные</span>
+            <slot></slot>
             <IconDelete @click="emit('deleteItem')"/>
         </div>
         <VButton>

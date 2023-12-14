@@ -1,5 +1,5 @@
 <template>
-  <label>
+  <label :class="inputClass">
     <slot></slot>
     <input
       class="input"
@@ -18,19 +18,25 @@ const props = defineProps<{
   required?: boolean
   readonly?: boolean
   disabled?: boolean
+  inputClass?: string
 }>()
 </script>
 
 <style scoped>
 label {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: calc(var(--gap) / 2);
 }
+label.fit-content {
+  flex-grow: 0;
+}
 .input {
+  width: 100%;
   height: 3rem;
   flex-shrink: 0;
-  border: 2px solid rgba(var(--dark), 0.8);
+  border: var(--border);
   padding: 0 10px;
   outline: none;
 }

@@ -17,7 +17,11 @@ a {
   font-size: 10px;
 
   --padding: 25px;
+  --padding-sm: 10px;
+  --padding-xs: 5px;
+  --gap-lg: 25px;
   --gap: 10px;
+  --gap-sm: 5px;
 
   --primary: 11, 87, 208;
   --accent: 0, 128, 128;
@@ -32,6 +36,8 @@ a {
   --font-xs: 1.2rem;
 
   --radius-sm: 4px;
+
+  --border: 2px solid rgba(var(--dark), 0.8);
 }
 body {
   font-size: var(--font-sm);
@@ -41,7 +47,7 @@ body {
     margin: 0 auto;
 }
 .disabled {
-    opacity: 0.5;
+    opacity: 0.2;
 }
 .icon {
   width: 1.8rem;

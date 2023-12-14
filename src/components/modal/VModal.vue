@@ -8,9 +8,13 @@
                 <VAddRecord/>
             </div>
             <div class="modal__body">
-                <div class="modal__item">
-                    <ModalItem/>
-                </div>
+                <ModalItem
+                    v-for="item in props.model"
+                    :key="item.id"
+                    @click="emit('change', item, item.slug)"
+                >
+                    {{ item.label }}
+                </ModalItem>
             </div>
         </div>
     </div>
@@ -20,12 +24,20 @@
 import ModalItem from './ModalItem.vue'
 import { VSearch, VButton, VAddRecord } from '../ui'
 
+interface IModalItem {
+    id: number
+    label: string
+    slug: string
+}
+
 const props = defineProps<{
     title: string
+    model?: IModalItem[]
 }>()
 
 const emit = defineEmits<{
-    close: []
+    close: [],
+    change: [model: IModalItem, value: string]
 }>()
 </script>
 
@@ -62,5 +74,6 @@ const emit = defineEmits<{
     padding: 10px 0;
     display: flex;
     flex-direction: column;
+    gap: var(--gap-sm);
 }
 </style>
