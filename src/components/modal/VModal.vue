@@ -1,17 +1,17 @@
 <template>
-    <div class="modal">
+    <div class="modal" v-if="props.model && props.isVisible">
         <div class="modal__content">
             <div class="modal__header">
-                <span class="modal__title">{{ props.title }}</span>
+                <span class="modal__title">{{ props.model.label }}</span>
                 <VButton class="modal__close-button" @click="emit('close')">Закрыть</VButton>
                 <VSearch placeholder="Поиск позиции по первым символам"/>
                 <VAddRecord/>
             </div>
             <div class="modal__body">
                 <ModalItem
-                    v-for="item in props.model"
+                    v-for="item in props.items"
                     :key="item.id"
-                    @click="emit('change', item, item.slug)"
+                    @click="emit('change', props.model.slug, item.slug)"
                 >
                     {{ item.label }}
                 </ModalItem>
@@ -23,21 +23,23 @@
 <script setup lang="ts">
 import ModalItem from './ModalItem.vue'
 import { VSearch, VButton, VAddRecord } from '../ui'
+import type { IEntity } from '@/types/models'
 
-interface IModalItem {
-    id: number
-    label: string
-    slug: string
+export interface IModalProps {
+    model: IEntity | null
+    items: IEntity[]
+    isVisible: boolean
 }
 
 const props = defineProps<{
-    title: string
-    model?: IModalItem[]
+    model: IModalProps['model']
+    items: IModalProps['items']
+    isVisible: IModalProps['isVisible']
 }>()
 
 const emit = defineEmits<{
     close: [],
-    change: [model: IModalItem, value: string]
+    change: [slug: string, selectedSlug: string]
 }>()
 </script>
 

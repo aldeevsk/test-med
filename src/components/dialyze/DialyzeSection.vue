@@ -6,12 +6,12 @@
             <VButton :class="{'active': program === 'UF'}" @click="program='UF'">UF</VButton>
         </VGroup>
         <VGroup>
-            <TextInput :placeholder="dialazer" readonly>Диализатор</TextInput>
+            <TextInput placeholder="Спр. Диализаторы" :value="dialyzeAppointments.dialyzers.label" readonly>Диализатор</TextInput>
             <VButton @click="setupModal('dialyzers')"><IconMenu/></VButton>
         </VGroup>
         <VGroup>
             <TextInput placeholder="Спр. Концентраторы" readonly>Концентратор</TextInput>
-            <VButton @click="setupModal('Концентратор')"><IconMenu/></VButton>
+            <VButton @click="setupModal('concentrators')"><IconMenu/></VButton>
             <TextInput input-class="fit-content" placeholder="10 л" readonly>Объем л.</TextInput>
         </VGroup>
         <VGroup title="Тип инъекции">
@@ -53,11 +53,11 @@
             />
         </VGroup>
         <Modal
-            v-if="modal.isVisible"
-            :title="modal.title"
             @close="modal.isVisible=false"
-            @change="(model, value) => console.log(model, value)"
+            @change="(slug, selected) => setDict(slug, selected, dialyzeAppointments)"
             :model="modal.model"
+            :items="modal.items"
+            :isVisible="modal.isVisible"
         />
     </VSection>
 </template>
@@ -65,28 +65,59 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { VButton, TextInput } from '@/components/ui'
-import { IconMenu } from '../icons'
+import { IconMenu } from '@/components/icons'
 import { VSection, VGroup } from '@/components'
-import { Modal } from '@/components/modal'
+import { Modal, type IModalProps } from '@/components/modal'
 import DialyzeBoard from './DialyzeBoard.vue'
+import type { IModalData, IEntities } from '@/types/models'
+import { useDialyzersStore } from '@/stores/dialyzers'
+
+const dialyzersStore = useDialyzersStore()
 
 const program = ref<string>('')
 const injectType = ref<string>('')
 
 
-const dialazer = ref<string>('Диализатор 1')
-
-const modal = ref({
-    title: 'Диализаторы',
-    isVisible: false,
+const categories = ref<IModalData>({
+    dialyzers: {
+        info: {id: 1, slug: 'dialyzers', label: 'Диализаторы'},
+        items: dialyzersStore.all()
+    },
+    concentrators: {
+        info: { id: 2, slug: 'concentrators', label: 'Концентраторы'},
+        items: []
+    }
 })
-function setupModal(model: string) {
-    modal.value.isVisible = true
+
+const modal = ref<IModalProps>({
+    isVisible: false,
+    model: null,
+    items: []
+})
+
+function setupModal(model: string): void {
+    const mod = categories.value[model]
+    if(!mod) return
+    modal.value = {
+        model: mod.info,
+        items: mod.items,
+        isVisible: true
+    }
+}
+
+const dialyzeAppointments = ref<IEntities>({
+    dialyzers: {id: 1, slug: '', label: ''},
+    concentrators: {id: 1, slug: '', label: ''},
+})
+
+function setDict(key: string, selected: string, dict: IEntities): void {
+    const entry = dict[key]
+    const data = categories.value[key].items.find( item => item.slug === selected)
+    if (!entry || !data) return;
+    dict[key] = data
+    console.log(entry)
 }
 </script>
 
 <style scoped>
-.fit-content {
-    width: 8rem;
-}
 </style>

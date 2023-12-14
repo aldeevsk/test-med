@@ -5,6 +5,7 @@
       class="input"
       type="text"
       :placeholder="props.placeholder"
+      :value="props.value"
       :required="props.required"
       :readonly="props.readonly"
       :disabled="props.disabled"
@@ -19,6 +20,7 @@ const props = defineProps<{
   readonly?: boolean
   disabled?: boolean
   inputClass?: string
+  value?: string
 }>()
 </script>
 
