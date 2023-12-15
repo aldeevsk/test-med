@@ -1,5 +1,6 @@
 <template>
     <div class="recipe-table">
+        <h3 class="recipe__title">Список назначений после сеансов</h3>
         <table class="table">
             <thead>
                 <th>Лекарственный препарат</th>
@@ -54,9 +55,14 @@ const emit = defineEmits<{
 <style scoped>
 .recipe-table {
     width: 100%;
+    display: grid;
+    gap: var(--gap);
+    margin-top: 20px;
+}
+.recipe__title {
+    font-weight: normal;
 }
 .table {
-    margin-top: 20px;
     border: none;
     border-collapse: collapse;
     width: 100%;

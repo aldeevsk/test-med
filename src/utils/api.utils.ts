@@ -2,6 +2,7 @@ import { categories } from '@/_mockdata/categories.data'
 import { products } from '@/_mockdata/products.data'
 import { productTypes } from '@/_mockdata/producttypes.data'
 
+
 const data: any = {
     categories,
     products,

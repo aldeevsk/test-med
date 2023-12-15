@@ -1,6 +1,6 @@
 <template>
     <VSection title="Назначения сеанса гемодиализа">
-        <VGroup>
+        <VGroup title="Программа сеанса">
             <VButton :class="{ active: program === 'HD' }" @click="program = 'HD'">HD</VButton>
             <VButton :class="{ active: program === 'HDF' }" @click="program = 'HDF'">HDF</VButton>
             <VButton :class="{ active: program === 'UF' }" @click="program = 'UF'">UF</VButton>

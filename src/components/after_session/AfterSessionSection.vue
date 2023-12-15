@@ -71,11 +71,12 @@ const sessionDays = ref<ISessionDay[]>([
 const sessionsCount = ref<number>(0)
 
 function setDay(num: number): void {
-    const filtered = sessionDays.value.filter((d) => d.status === 'active')
     const index = sessionDays.value.findIndex((d) => d.num === num)
-    if (index || index === 0) {
+
+    const condition = index !== -1 && sessionDays.value[index].status !== 'active'
+    if (condition) {
         sessionDays.value[index].status = 'active'
-        sessionsCount.value = filtered.length
+        sessionsCount.value++
     }
 }
 

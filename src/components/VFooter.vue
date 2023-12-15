@@ -23,7 +23,7 @@ const date = ref<string>('')
 
 function setDate() {
     const now = new Date()
-    const dateString = formatDateForInputDatetime(now)
+    const dateString = formatDateForInputDatetime(now, { time: true })
     date.value = dateString
 }
 

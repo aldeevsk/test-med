@@ -31,6 +31,9 @@ const props = defineProps<{
     display: grid;
     gap: var(--gap);
 }
+.recommends__title {
+    font-weight: normal;
+}
 .recommends__body {
     width: 100%;
     display: grid;

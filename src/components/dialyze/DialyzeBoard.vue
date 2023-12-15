@@ -49,6 +49,7 @@ const props = defineProps<{
     display: flex;
     gap: var(--gap);
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
 .board__item {
