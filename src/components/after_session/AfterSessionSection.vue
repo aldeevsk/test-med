@@ -47,8 +47,8 @@ import { VButton, TextInput, DateInput } from '@/components/ui'
 import { VSection, VGroup } from '@/components'
 import { Modal, type IModalProps } from '@/components/modal'
 import RecipeTable, { type IRecipeTableProps } from './RecipeTable.vue'
-import { useCategoriesStore } from '@/stores/categories'
-import { useProductsStore } from '@/stores/products'
+import { useCategoriesStore } from '@/stores'
+import { useProductsStore } from '@/stores'
 
 const categoriesStore = useCategoriesStore()
 const productsStore = useProductsStore()

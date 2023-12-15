@@ -80,8 +80,8 @@ import { IconMenu } from '@/components/icons'
 import { VSection, VGroup } from '@/components'
 import { Modal, type IModalProps } from '@/components/modal'
 import DialyzeBoard from './DialyzeBoard.vue'
-import { useCategoriesStore } from '@/stores/categories'
-import { useProductsStore } from '@/stores/products'
+import { useCategoriesStore } from '@/stores'
+import { useProductsStore } from '@/stores'
 
 const categoriesStore = useCategoriesStore()
 const productsStore = useProductsStore()

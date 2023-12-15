@@ -1,5 +1,5 @@
-import { useDialyzersStore } from './dialyzers'
-import { useConcentratorsStore } from './concentrators'
-import { useMedicationsStore } from './medications'
+import { useCategoriesStore } from "./categories"
+import { useProductsStore } from "./products"
+import { usePoductTypesStore } from "./productTypes"
 
-export { useDialyzersStore, useConcentratorsStore, useMedicationsStore }
+export { useCategoriesStore, useProductsStore, usePoductTypesStore }
