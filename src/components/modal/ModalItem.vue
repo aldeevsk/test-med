@@ -2,10 +2,10 @@
     <div class="modal__item">
         <div class="modal__item-name">
             <slot></slot>
-            <IconDelete @click="emit('deleteItem')"/>
+            <IconDelete @click="emit('deleteItem')" />
         </div>
-        <VButton>
-            <IconAngleRight/>
+        <VButton @click="emit('checkItem')">
+            <IconAngleRight />
         </VButton>
     </div>
 </template>
@@ -14,9 +14,9 @@
 import { IconDelete, IconAngleRight } from '../icons'
 import { VButton } from '../ui'
 
-
 const emit = defineEmits<{
     deleteItem: []
+    checkItem: []
 }>()
 </script>
 

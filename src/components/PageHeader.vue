@@ -7,9 +7,7 @@
     </header>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .header {
@@ -22,7 +20,8 @@
     flex-wrap: wrap;
     align-items: center;
 }
-.header__title, .header__number {
+.header__title,
+.header__number {
     min-width: 50%;
 }
 </style>

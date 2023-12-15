@@ -3,10 +3,8 @@
         <span class="group__title">{{ props.title }}</span>
         <div class="group__row">
             <div class="select__label">{{ props.label }}</div>
-            <button class="select__button"
-                @click="emit('clickButton')"
-            >
-                <IconMenu/>
+            <button class="select__button" @click="emit('clickButton')">
+                <IconMenu />
             </button>
             <slot></slot>
         </div>
@@ -16,20 +14,17 @@
 <script setup lang="ts">
 import { IconMenu } from '../icons'
 
-
 const props = defineProps<{
-    title: string,
+    title: string
     label: string
 }>()
 
 const emit = defineEmits<{
     clickButton: []
 }>()
-
 </script>
 
 <style scoped>
-
 .select__label {
     height: 30px;
     display: flex;

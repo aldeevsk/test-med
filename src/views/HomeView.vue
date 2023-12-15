@@ -1,11 +1,11 @@
 <template>
-  <PageHeader/>
-  <main>
-    <DialyzeSection/>
-    <AfterSessionSection/>
-    <HomeTreatmentSection/>
-  </main>
-  <VFooter/>
+    <PageHeader />
+    <main>
+        <DialyzeSection />
+        <AfterSessionSection />
+        <HomeTreatmentSection />
+    </main>
+    <VFooter />
 </template>
 
 <script setup lang="ts">
@@ -15,5 +15,4 @@ import { AfterSessionSection } from '@/components/after_session/'
 import { HomeTreatmentSection } from '@/components/home_treatment'
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

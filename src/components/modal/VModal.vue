@@ -4,14 +4,15 @@
             <div class="modal__header">
                 <span class="modal__title">{{ props.model.label }}</span>
                 <VButton class="modal__close-button" @click="emit('close')">Закрыть</VButton>
-                <VSearch placeholder="Поиск позиции по первым символам"/>
-                <VAddRecord/>
+                <VSearch placeholder="Поиск позиции по первым символам" />
+                <VAddRecord />
             </div>
             <div class="modal__body">
                 <ModalItem
                     v-for="item in props.items"
                     :key="item.id"
-                    @click="emit('change', props.model.slug, item.slug)"
+                    :class="{ active: checked === item.slug }"
+                    @check-item="change(props.model.slug, item.slug)"
                 >
                     {{ item.label }}
                 </ModalItem>
@@ -21,6 +22,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import ModalItem from './ModalItem.vue'
 import { VSearch, VButton, VAddRecord } from '../ui'
 import type { IEntity } from '@/types/models'
@@ -38,9 +40,16 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-    close: [],
+    close: []
     change: [slug: string, selectedSlug: string]
 }>()
+
+const checked = ref<string>('')
+
+function change(slug: string, selectedSlug: string) {
+    checked.value = selectedSlug
+    emit('change', slug, selectedSlug)
+}
 </script>
 
 <style scoped>
@@ -79,3 +88,4 @@ const emit = defineEmits<{
     gap: var(--gap-sm);
 }
 </style>
+@/stores/types/models

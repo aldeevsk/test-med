@@ -3,16 +3,15 @@ import { defineStore } from 'pinia'
 import { api } from '@/utils/api'
 import type { IEntity } from '@/stores/types/models'
 
-export const useDialyzersStore = defineStore('dialyzers', () => {
-    const dialyzers = ref()
+export const useCathetersStore = defineStore('catheters', () => {
+    const catheters = ref()
 
     function all(): IEntity[] {
-        return dialyzers.value
+        return catheters.value
     }
 
     function fetchData(): void {
-        dialyzers.value = api.getBy<IEntity[]>({ category: 'dialyzers' })
-        console.log(dialyzers.value)
+        catheters.value = api.getBy<IEntity[]>({ category: 'catheters' })
     }
 
     fetchData()

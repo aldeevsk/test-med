@@ -12,9 +12,7 @@
                 <th></th>
             </thead>
             <tbody>
-                <tr v-for="(recipe, index) in props.recipes"
-                    :key="index"
-                >
+                <tr v-for="(recipe, index) in props.recipes" :key="index">
                     <td>{{ recipe.medication }}</td>
                     <td>{{ recipe.takingMethod }}</td>
                     <td>{{ recipe.dosage }}</td>
@@ -23,7 +21,7 @@
                     <td>{{ recipe.number }}</td>
                     <td>{{ recipe.days }}</td>
                     <td @click="emit('deleteItem', index)">
-                        <IconDelete/>
+                        <IconDelete />
                     </td>
                 </tr>
             </tbody>
@@ -64,7 +62,8 @@ const emit = defineEmits<{
     width: 100%;
     min-width: 840px;
 }
-.table th, .table td {
+.table th,
+.table td {
     height: 3rem;
     padding: 0 20px;
     font-size: 13px;
@@ -76,7 +75,7 @@ const emit = defineEmits<{
 .table td {
     text-align: center;
 }
-@media(max-width: 840px) {
+@media (max-width: 840px) {
     .recipe-table {
         width: calc(100vw - 50px);
         margin: 0 auto;

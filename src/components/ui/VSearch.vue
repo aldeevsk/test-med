@@ -1,13 +1,8 @@
 <template>
     <div class="search">
-        <TextInput type="text"
-            class="search__input"
-            :placeholder="props.placeholder"
-        />
-        <VButton class="search__button"
-            @click="search"
-        >
-            <IconLoupe/>
+        <TextInput type="text" class="search__input" :placeholder="props.placeholder" />
+        <VButton class="search__button" @click="search">
+            <IconLoupe />
         </VButton>
     </div>
 </template>

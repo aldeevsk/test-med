@@ -1,3 +1,3 @@
-import AfterSessionSection from "./AfterSessionSection.vue"
+import AfterSessionSection from './AfterSessionSection.vue'
 
 export { AfterSessionSection }

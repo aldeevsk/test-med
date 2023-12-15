@@ -2,7 +2,7 @@
     <footer class="footer">
         <div class="container">
             <VGroup class="content-between">
-                <DateInput time="true" :value="date"/>
+                <DateInput time="true" :value="date" />
                 <span>ФИО лечащего врача</span>
                 <span>Должность</span>
             </VGroup>

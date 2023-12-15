@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { VButton } from "./ui"
+import { VButton } from './ui'
 
 export interface ButtonProps {
     text: string

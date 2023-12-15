@@ -30,9 +30,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .recipe {
@@ -52,7 +50,6 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: var(--gap);
-
 }
 .recipe__item:not(:last-child) {
     padding-bottom: var(--gap);

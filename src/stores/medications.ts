@@ -11,7 +11,7 @@ export const useMedicationsStore = defineStore('medications', () => {
     }
 
     function fetchData(): void {
-        medications.value = api.getBy({ category: 'medications' })
+        medications.value = api.getBy<IMedication[]>({ category: 'medications' })
     }
 
     onMounted(() => {

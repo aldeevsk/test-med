@@ -1,22 +1,30 @@
-import { type IEntity } from '@/types/models'
 import { medications } from '@/_mockdata/medications'
 import { dialyzers } from '@/_mockdata/dialyzers'
 import { concentrators } from '@/_mockdata/concentrators'
 
 const data: any = {
-  dialyzers,
-  concentrators,
-  medications,
+    dialyzers,
+    concentrators,
+    medications
 }
 
 interface IGetOptions {
-  category?: string | null
-  slug?: string | null
+    id?: number | string
+    category?: string | null
+    slug?: string | null
+}
+
+function getByCategory<T>(category: string): T | void {
+    const result = category ? data[category] || [] : null
+    return result
 }
 
 export const api = {
-  getBy<T extends IEntity>({ category = null }: IGetOptions): T[] {
-    const byCategory = category ? data[category] || [] : null
-    return byCategory || null
-  }
+    getBy<T>({ category = null }: IGetOptions): T | void {
+        let result
+        if (category) {
+            result = getByCategory<T>(category)
+        }
+        return result
+    }
 }

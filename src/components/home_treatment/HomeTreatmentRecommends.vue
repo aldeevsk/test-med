@@ -2,9 +2,16 @@
     <div class="recommends">
         <h3 class="recommends__title">Рекомендации</h3>
         <div class="recommends__body">
-            <VAddRecord/>
+            <VAddRecord />
             <div class="recommends__list">
-                <div class="recommends__item">item</div>
+                <div v-if="!props.recommends" class="recommends__item">Список рекомендаций...</div>
+                <div
+                    class="recommends__item"
+                    v-for="(recommend, index) in props.recommends"
+                    :key="index"
+                >
+                    {{ recommend }}
+                </div>
             </div>
         </div>
     </div>
@@ -12,6 +19,10 @@
 
 <script setup lang="ts">
 import { VAddRecord } from '../ui'
+
+const props = defineProps<{
+    recommends?: string[]
+}>()
 </script>
 
 <style scoped>

@@ -1,14 +1,8 @@
 <template>
     <div class="add">
-        <TextInput
-            class="add__input"
-            v-model="input"
-            placeholder="Добавить новую запись"
-        />
-        <VButton class="add__button"
-            @click="add"
-        >
-            <IconPlus/>
+        <TextInput class="add__input" v-model="input" placeholder="Добавить новую запись" />
+        <VButton class="add__button" @click="add">
+            <IconPlus />
         </VButton>
     </div>
 </template>
@@ -17,7 +11,6 @@
 import { ref } from 'vue'
 import { TextInput, VButton } from '.'
 import { IconPlus } from '../icons'
-
 
 const emit = defineEmits<{
     add: [title: string]

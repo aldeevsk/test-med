@@ -1,7 +1,6 @@
 <template>
     <div class="group">
-        <h3 class="group__title"
-            v-if="props.title">
+        <h3 class="group__title" v-if="props.title">
             {{ props.title }}
         </h3>
         <div class="group__body" :style="{ 'column-gap': props.cGap, 'row-gap': props.rGap }">

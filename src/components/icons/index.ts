@@ -11,15 +11,15 @@ import IconLab from './IconLab.vue'
 import IconWeight from './IconWeight.vue'
 
 export {
-  IconMenu,
-  IconLoupe,
-  IconPlus,
-  IconDelete,
-  IconAngleRight,
-  IconMonitor,
-  IconDialyzer,
-  IconConcentrator,
-  IconInject,
-  IconLab,
-  IconWeight
+    IconMenu,
+    IconLoupe,
+    IconPlus,
+    IconDelete,
+    IconAngleRight,
+    IconMonitor,
+    IconDialyzer,
+    IconConcentrator,
+    IconInject,
+    IconLab,
+    IconWeight
 }

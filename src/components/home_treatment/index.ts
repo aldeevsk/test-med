@@ -1,3 +1,3 @@
-import HomeTreatmentSection from "./HomeTreatmentSection.vue";
+import HomeTreatmentSection from './HomeTreatmentSection.vue'
 
 export { HomeTreatmentSection }

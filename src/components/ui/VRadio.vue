@@ -1,22 +1,20 @@
 <template>
-    <input type="radio"
+    <input
+        type="radio"
         :name="props.name"
         :id="props.id"
         :required="props.required"
         @change="emit('change', +props.id)"
-    >
-    <label
-        :for="props.id"
-    >
+    />
+    <label :for="props.id">
         {{ props.label }}
     </label>
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps<{
-    name: string,
-    id: string,
+    name: string
+    id: string
     label: string
     required?: boolean
 }>()
@@ -40,6 +38,6 @@ const emit = defineEmits<{
 }
 [type='radio']:checked + label {
     border-color: rgba(var(--accent), 0.8);
-    color: rgba(var(--accent), 0.8)
+    color: rgba(var(--accent), 0.8);
 }
 </style>

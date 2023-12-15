@@ -1,21 +1,21 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { api } from '@/utils/api'
-import type { IEntity } from '@/types/models'
+import type { IEntity } from '@/stores/types/models'
 
 export const useConcentratorsStore = defineStore('concentrators', () => {
-  const concentrators = ref()
+    const concentrators = ref()
 
-  function all(): IEntity[] {
-    return concentrators.value
-  }
+    function all(): IEntity[] {
+        return concentrators.value
+    }
 
-  function fetchData(): void {
-    concentrators.value = api.getBy({ category: 'concentrators' })
-    console.log(concentrators.value)
-  }
+    function fetchData(): void {
+        concentrators.value = api.getBy<IEntity[]>({ category: 'concentrators' })
+        console.log(concentrators.value)
+    }
 
-  fetchData()
+    fetchData()
 
-  return { all, fetchData }
+    return { all, fetchData }
 })
